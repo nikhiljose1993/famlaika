@@ -1,3 +1,5 @@
+import 'package:famlaika/constants/app_colors.dart';
+import 'package:famlaika/constants/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'splash_viewmodel.dart';
@@ -11,13 +13,16 @@ class SplashView extends StatelessWidget {
       viewModelBuilder: () {
         return SplashViewModel();
       },
-
-      // onViewModelReady: (model) {
-      //   return model.startTimer();
-      // },
-
+      onViewModelReady: (model) {
+        return model.startTimer();
+      },
       builder: (context, viewModel, child) {
-        return Scaffold();
+        return Scaffold(
+          backgroundColor: Palette.splashBackground,
+          body: Center(
+            child: Assets.images.logo.image(),
+          ),
+        );
       },
     );
   }

@@ -3,13 +3,23 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 abstract class Palette {
-  static const Color primary = Color(0xff317773);
-  static const Color scaffoldBackgroundColor = Color(0xffFFFFFF);
-  static const Color primarButtonColor = Color(0xff1C3C3A);
-  static const Color secondaryButtonColor = Color(0xffD9D9D9);
-  static const Color introTextColor = Color(0xff2C2D2E);
-  static const Color shadowColor = Color(0xff000000);
-  static const Color hintTextColor = Color(0xffA9A9A9);
+  static const Color scaffoldBackgroundColor = Color(0xff1E1E1E);
+  static const Color splashBackground = Color(0xff121212);
+
+  static const Color primary = Color(0xffF7B52C);
+
+  static const Color foreground = Color(0xffFFFFFF);
+
+  static const Color inputBorder = Color(0xff383838);
+
+  static const LinearGradient primaryGradient = LinearGradient(
+    begin: Alignment(-1.15, 1.0), // Adjusted for -15.77%
+    end: Alignment(2.39, -0.4), // Adjusted for 119.39%
+    colors: [
+      Color(0xFFF3802B),
+      Color(0xFFFAE42C),
+    ],
+  );
 }
 
 MaterialColor generateMaterialColor(Color color) {

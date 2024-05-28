@@ -1,25 +1,35 @@
-import 'package:famlaika/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../constants/app_colors.dart';
+import '../constants/fonts.gen.dart';
 
 ThemeData theme = ThemeData(
   primarySwatch: generateMaterialColor(Palette.primary),
-  // fontFamily: FontFamily.sen,
+  fontFamily: FontFamily.figtree,
   scaffoldBackgroundColor: Palette.scaffoldBackgroundColor,
   textTheme: TextTheme(
-    headlineMedium: GoogleFonts.sen(fontSize: 26, fontWeight: FontWeight.bold),
-    headlineSmall: GoogleFonts.sen(fontSize: 20, fontWeight: FontWeight.bold),
+    headlineLarge: GoogleFonts.figtree(
+        fontSize: 22, fontWeight: FontWeight.w600, color: Palette.foreground),
+    headlineMedium: GoogleFonts.figtree(
+        fontSize: 18, fontWeight: FontWeight.w500, color: Palette.foreground),
+    headlineSmall: GoogleFonts.figtree(
+      fontSize: 16,
+      fontWeight: FontWeight.w500,
+      color: Palette.scaffoldBackgroundColor,
+    ),
     //
-    titleLarge: GoogleFonts.sen(fontSize: 20),
-    titleMedium: GoogleFonts.sen(fontSize: 18, fontWeight: FontWeight.bold),
-    titleSmall: GoogleFonts.sen(fontSize: 16),
+    titleLarge: GoogleFonts.figtree(fontSize: 16, color: Palette.foreground),
     //
-    bodyLarge: GoogleFonts.sen(fontSize: 14),
-    bodyMedium: GoogleFonts.sen(fontSize: 12),
-    bodySmall: GoogleFonts.sen(fontSize: 10),
+    bodyLarge: GoogleFonts.sen(
+        fontSize: 14, fontWeight: FontWeight.w600, color: Palette.foreground),
+    bodyMedium: GoogleFonts.sen(
+        fontSize: 14, fontWeight: FontWeight.w500, color: Palette.foreground),
+    bodySmall: GoogleFonts.sen(fontSize: 14, color: Palette.foreground),
     //
-    labelLarge: GoogleFonts.sen(fontSize: 16, fontWeight: FontWeight.bold),
-    labelMedium: GoogleFonts.sen(fontSize: 14, fontWeight: FontWeight.bold),
-    labelSmall: GoogleFonts.sen(fontSize: 12, fontWeight: FontWeight.bold),
+    labelLarge: GoogleFonts.sen(
+        fontSize: 16, fontWeight: FontWeight.bold, color: Palette.foreground),
+    labelMedium: GoogleFonts.sen(
+        fontSize: 14, fontWeight: FontWeight.bold, color: Palette.foreground),
+    labelSmall: GoogleFonts.sen(fontSize: 12, color: Palette.foreground),
   ),
 );
