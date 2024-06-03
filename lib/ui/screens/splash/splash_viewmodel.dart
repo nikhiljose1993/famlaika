@@ -24,9 +24,9 @@ class SplashViewModel extends BaseViewModel {
     // });
 
     _timer = Timer(
-      const Duration(seconds: 3),
+      const Duration(seconds: 2),
       () async {
-        navigationService.navigateTo(Routes.loginView);
+        navigationService.replaceWith(Routes.loginView);
       },
     );
 

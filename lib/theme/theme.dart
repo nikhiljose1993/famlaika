@@ -13,10 +13,9 @@ ThemeData theme = ThemeData(
     headlineMedium: GoogleFonts.figtree(
         fontSize: 18, fontWeight: FontWeight.w500, color: Palette.foreground),
     headlineSmall: GoogleFonts.figtree(
-      fontSize: 16,
-      fontWeight: FontWeight.w500,
-      color: Palette.scaffoldBackgroundColor,
-    ),
+        fontSize: 16,
+        fontWeight: FontWeight.w500,
+        color: Palette.scaffoldBackgroundColor),
     //
     titleLarge: GoogleFonts.figtree(fontSize: 16, color: Palette.foreground),
     //

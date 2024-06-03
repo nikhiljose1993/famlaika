@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:famlaika/theme/theme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -9,9 +8,11 @@ import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:statusbarz/statusbarz.dart';
 
+import 'app/app.locator.dart';
 import 'app/app.router.dart';
 import 'constants/app_strings.dart';
 import 'constants/assets.gen.dart';
+import 'services/theme_service.dart';
 import 'ui/tools/screen_size.dart';
 import 'ui/tools/smart_dialog_config.dart';
 import 'ui/widgets/setup_dependencies.dart';
@@ -43,10 +44,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeService = locator<ThemeService>();
     return ScreenUtilInit(
       designSize: const Size(360, 800),
       builder: (context, child) {
         return StatusbarzCapturer(
+          theme: StatusbarzTheme(
+            darkStatusBar: SystemUiOverlayStyle.light,
+            lightStatusBar: SystemUiOverlayStyle.dark,
+          ),
           child: GestureDetector(
             onTap: () {
               FocusScopeNode currentFocus = FocusScope.of(context);
@@ -58,7 +64,7 @@ class MyApp extends StatelessWidget {
             },
             child: MaterialApp(
               title: AppStrings.appName,
-              theme: theme,
+              theme: themeService.theme,
               builder: FlutterSmartDialog.init(
                 builder: (context, child) {
                   ScreenSize.init(context);

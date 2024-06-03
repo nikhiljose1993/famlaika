@@ -5,8 +5,13 @@ import 'package:flutter/material.dart';
 abstract class Palette {
   static const Color scaffoldBackgroundColor = Color(0xff1E1E1E);
   static const Color splashBackground = Color(0xff121212);
+  static const Color secondaryBackground = Color(0xff2B2B2B);
 
+  static const Color lightGrey = Color(0xff2F2F2F);
+  static const Color opaqueGrey = Color(0xff464545);
   static const Color primary = Color(0xffF7B52C);
+
+  static const Color errColor = Color(0xFFF44336);
 
   static const Color foreground = Color(0xffFFFFFF);
 

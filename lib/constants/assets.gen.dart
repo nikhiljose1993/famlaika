@@ -19,6 +19,22 @@ class $AssetsCaGen {
   List<String> get values => [letsEncryptR3];
 }
 
+class $AssetsFlagsGen {
+  const $AssetsFlagsGen();
+
+  /// File path: assets/flags/india.svg
+  String get india => 'assets/flags/india.svg';
+
+  /// File path: assets/flags/saudi.svg
+  String get saudi => 'assets/flags/saudi.svg';
+
+  /// File path: assets/flags/uae.svg
+  String get uae => 'assets/flags/uae.svg';
+
+  /// List of all assets
+  List<String> get values => [india, saudi, uae];
+}
+
 class $AssetsFontsGen {
   const $AssetsFontsGen();
 
@@ -101,12 +117,27 @@ class $AssetsImagesGen {
   List<AssetGenImage> get values => [login, logo, splash4x];
 }
 
+class $AssetsSvgGen {
+  const $AssetsSvgGen();
+
+  /// File path: assets/svg/appbar_back.svg
+  String get appbarBack => 'assets/svg/appbar_back.svg';
+
+  /// File path: assets/svg/line.svg
+  String get line => 'assets/svg/line.svg';
+
+  /// List of all assets
+  List<String> get values => [appbarBack, line];
+}
+
 class Assets {
   Assets._();
 
   static const $AssetsCaGen ca = $AssetsCaGen();
+  static const $AssetsFlagsGen flags = $AssetsFlagsGen();
   static const $AssetsFontsGen fonts = $AssetsFontsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsSvgGen svg = $AssetsSvgGen();
 }
 
 class AssetGenImage {
