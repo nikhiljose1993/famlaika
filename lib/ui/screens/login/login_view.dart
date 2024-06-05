@@ -2,7 +2,7 @@ import 'package:famlaika/constants/app_colors.dart';
 import 'package:famlaika/constants/app_strings.dart';
 import 'package:famlaika/models/country.dart';
 import 'package:famlaika/ui/tools/screen_size.dart';
-import 'package:famlaika/ui/widgets/custom_button.dart';
+import 'package:famlaika/ui/widgets/shared.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -168,7 +168,7 @@ class LoginView extends StatelessWidget {
                           //     ),
                           //   ),
                           const Spacer(flex: 91),
-                          CustomButton(
+                          customButton(
                             buttonText: AppStrings.requestOtp,
                             onTap: viewModel.getOtp,
                           ),

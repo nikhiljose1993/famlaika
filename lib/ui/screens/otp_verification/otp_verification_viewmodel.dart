@@ -1,21 +1,14 @@
+import 'package:famlaika/app/app.router.dart';
+import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../../app/utils.dart';
 
 class OtpVerificationViewModel extends BaseViewModel {
-  String _otp = '';
-
-  String get otp => _otp;
-
-  void updateOtp(String otp) {
-    _otp = otp;
-    notifyListeners();
-  }
+  TextEditingController otpController = TextEditingController();
 
   void verifyOtp() {
-    // Logic to handle OTP submission
-    print('OTP Submitted: $_otp');
-    // navigationService.navigateTo();
+    navigationService.navigateTo(Routes.personalInformationView);
   }
 
   void goBack() {

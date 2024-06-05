@@ -1,16 +1,13 @@
 import 'package:famlaika/constants/app_colors.dart';
 import 'package:famlaika/constants/app_strings.dart';
 import 'package:famlaika/ui/screens/otp_verification/otp_verification_viewmodel.dart';
-import 'package:famlaika/ui/tools/screen_size.dart';
-import 'package:famlaika/ui/widgets/custom_button.dart';
-import 'package:famlaika/ui/widgets/otp_input.dart';
-import 'package:famlaika/ui/widgets/rounded_svg_button.dart';
 import 'package:flutter/material.dart';
+import 'package:pinput/pinput.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../../app/app.locator.dart';
-import '../../../constants/assets.gen.dart';
 import '../../../services/theme_service.dart';
+import '../../widgets/shared.dart';
 
 class OtpVerificationView extends StatelessWidget {
   const OtpVerificationView({super.key});
@@ -25,109 +22,93 @@ class OtpVerificationView extends StatelessWidget {
       },
       builder: (context, viewModel, child) {
         return Scaffold(
-          body: SafeArea(
-              child: ConstrainedBox(
-            constraints: BoxConstraints(maxHeight: ScreenSize.height),
-            child: Column(
-              children: [
-                Flexible(
-                  // flex: 480,
+          appBar: appBar(title: AppStrings.otpVerification),
+          body: Column(
+            children: [
+              Flexible(
+                flex: 103,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Flexible(
-                        flex: 169,
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Spacer(flex: 20),
-                              Row(
-                                children: [
-                                  RoundButtonWithSvg(
-                                    svgAssetPath: Assets.svg.appbarBack,
-                                    backgroundColor: Palette.lightGrey,
-                                    size: 36,
-                                    onPressed: () {
-                                      viewModel.goBack();
-                                    },
-                                  ),
-                                  const SizedBox(width: 12),
-                                  Text(
-                                    AppStrings.otpVerification,
-                                    style: theme.textTheme.headlineLarge!
-                                        .copyWith(fontWeight: FontWeight.w500),
-                                  ),
-                                ],
-                              ),
-                              const Spacer(flex: 30),
-                              Text(
-                                AppStrings.enterTheOtp,
-                                style: theme.textTheme.titleLarge,
-                              ),
-                              const Spacer(flex: 50),
-                            ],
-                          ),
-                        ),
+                      const Spacer(flex: 20),
+                      Text(
+                        AppStrings.enterTheOtp,
+                        style: theme.textTheme.titleLarge,
                       ),
-                      Flexible(
-                        flex: 92,
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 51,
-                              width: 261,
-                              child: OtpInput(
-                                onChanged: (value) {
-                                  viewModel.updateOtp(value);
-                                },
-                              ),
-                            ),
-                            const Spacer(flex: 30),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  AppStrings.didntReceiveOtp,
-                                  style: theme.textTheme.titleLarge,
-                                ),
-                                GestureDetector(
-                                  onTap: () {},
-                                  child: Text(
-                                    AppStrings.resend,
-                                    style: theme.textTheme.titleLarge!.copyWith(
-                                      color: Palette.primary,
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                      Flexible(
-                        flex: 175,
-                        child: Column(
-                          children: [
-                            const Spacer(flex: 69),
-                            CustomButton(
-                              buttonText: AppStrings.verify,
-                              onTap: viewModel.verifyOtp,
-                            ),
-                            const Spacer(flex: 69),
-                          ],
-                        ),
-                      )
+                      const Spacer(flex: 50),
                     ],
                   ),
                 ),
-                // Flexible(
-                //   flex: 320,
-                //   child: Container(),
-                // ),
-              ],
-            ),
-          )),
+              ),
+              Flexible(
+                flex: 92,
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 51,
+                      child: Pinput(
+                        length: 4,
+                        controller: viewModel.otpController,
+                        onChanged: (pin) {
+                          print('OTP entered: $pin');
+                        },
+                        onCompleted: (pin) {
+                          print('Completed: $pin');
+                        },
+                        defaultPinTheme: PinTheme(
+                          width: 55,
+                          height: 51,
+                          margin: const EdgeInsets.symmetric(horizontal: 6.5),
+                          textStyle: theme.textTheme.titleLarge!
+                              .copyWith(fontWeight: FontWeight.w500),
+                          decoration: BoxDecoration(
+                            color: Palette.lightGrey,
+                            borderRadius: BorderRadius.circular(4),
+                            border: Border.all(
+                                color: Palette.inputBorder, width: 1),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const Spacer(flex: 30),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          AppStrings.didntReceiveOtp,
+                          style: theme.textTheme.titleLarge,
+                        ),
+                        GestureDetector(
+                          onTap: () {},
+                          child: Text(
+                            AppStrings.resend,
+                            style: theme.textTheme.titleLarge!.copyWith(
+                              color: Palette.primary,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Flexible(
+                flex: 175,
+                child: Column(
+                  children: [
+                    const Spacer(flex: 69),
+                    customButton(
+                      buttonText: AppStrings.verify,
+                      onTap: viewModel.verifyOtp,
+                    ),
+                    const Spacer(flex: 69),
+                  ],
+                ),
+              )
+            ],
+          ),
         );
       },
     );

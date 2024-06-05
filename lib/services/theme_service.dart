@@ -6,6 +6,7 @@ import '../constants/fonts.gen.dart';
 
 class ThemeService {
   final ThemeData theme = ThemeData(
+    primaryColor: Palette.primary,
     fontFamily: FontFamily.figtree,
     scaffoldBackgroundColor: Palette.scaffoldBackgroundColor,
     textTheme: TextTheme(

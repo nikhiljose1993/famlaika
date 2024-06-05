@@ -123,11 +123,27 @@ class $AssetsSvgGen {
   /// File path: assets/svg/appbar_back.svg
   String get appbarBack => 'assets/svg/appbar_back.svg';
 
+  /// File path: assets/svg/calender.svg
+  String get calender => 'assets/svg/calender.svg';
+
+  /// File path: assets/svg/camera.svg
+  String get camera => 'assets/svg/camera.svg';
+
+  /// File path: assets/svg/female.svg
+  String get female => 'assets/svg/female.svg';
+
   /// File path: assets/svg/line.svg
   String get line => 'assets/svg/line.svg';
 
+  /// File path: assets/svg/male.svg
+  String get male => 'assets/svg/male.svg';
+
+  /// File path: assets/svg/user_alt.svg
+  String get userAlt => 'assets/svg/user_alt.svg';
+
   /// List of all assets
-  List<String> get values => [appbarBack, line];
+  List<String> get values =>
+      [appbarBack, calender, camera, female, line, male, userAlt];
 }
 
 class Assets {

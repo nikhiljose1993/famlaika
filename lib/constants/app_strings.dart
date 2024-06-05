@@ -16,4 +16,16 @@ abstract class AppStrings {
   static const String didntReceiveOtp = 'Didn’t receive OTP? ';
   static const String resend = 'Resend';
   static const String verify = 'Verify';
+
+  static const String personalInformation = 'Personal Information';
+  static const String enteringYourPersonalDetails =
+      'Entering your personal details and\nsetting up your profile';
+  static const String conti = 'Continue';
+  static const String uploadPhoto = 'Upload Photo ';
+  static const String gender = 'Gender';
+  static const String male = 'Male';
+  static const String female = 'Female';
+  static const String fullName = 'Full Name';
+  static const String dateOfBirth = 'Date of Birth ';
+  static const String optional = '(optional)';
 }

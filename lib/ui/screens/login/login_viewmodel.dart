@@ -25,20 +25,6 @@ class LoginViewModel extends BaseViewModel {
     return;
   }
 
-  // String formatPhoneNumber(String input) {
-  //   final buffer = StringBuffer();
-  //   var digits =
-  //       input.replaceAll(RegExp(r'\D'), ''); // Remove non-digit characters
-
-  //   for (var i = 0; i < digits.length; i++) {
-  //     if (i == 3 || i == 6) {
-  //       buffer.write(' '); // Add space after 3rd and 6th digits
-  //     }
-  //     buffer.write(digits[i]);
-  //   }
-  //   return buffer.toString();
-  // }
-
   void getOtp() {
     final validate = loginFormKey.currentState!.validate();
     if (validate) {
