@@ -147,8 +147,8 @@ Widget genderContainer({
   return GestureDetector(
     onTap: () => onSelectionChanged(index),
     child: Container(
-      height: 56.h,
-      width: 135.sp,
+      height: 56.dg,
+      width: 135.dm,
       decoration: BoxDecoration(
         color: isSelected ? Palette.primary.withOpacity(0.1) : Palette.inputGrey,
         borderRadius: BorderRadius.circular(4),
@@ -269,7 +269,7 @@ Widget phoneNumberFieldWithCountryCodes({
           onChanged: (value) => updateCountry(value),
           decoration: const InputDecoration(
             border: InputBorder.none,
-            contentPadding: EdgeInsets.only(bottom: 8, left: 10),
+            contentPadding: EdgeInsets.only(bottom: 12, left: 10),
           ),
           alignment: Alignment.center,
         ),
@@ -287,7 +287,7 @@ Widget phoneNumberFieldWithCountryCodes({
           decoration: InputDecoration(
             hintText: '000 000 0000',
             hintStyle: theme.textTheme.bodySmall!.copyWith(color: Palette.opaqueGrey),
-            contentPadding: const EdgeInsetsDirectional.only(bottom: 8, start: 14),
+            contentPadding: const EdgeInsetsDirectional.only(bottom: 14, start: 14),
             border: InputBorder.none,
             counterText: '',
           ),

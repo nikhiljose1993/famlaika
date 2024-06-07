@@ -12,7 +12,6 @@ import '../../../app/app.locator.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/assets.gen.dart';
 import '../../../services/theme_service.dart';
-import '../../tools/screen_size.dart';
 
 class AddMemberView extends StatelessWidget {
   const AddMemberView({super.key, required this.relation});
@@ -46,7 +45,7 @@ class AddMemberView extends StatelessWidget {
           body: SingleChildScrollView(
             child: ConstrainedBox(
               constraints: BoxConstraints(
-                maxHeight: 945.h - appBarHeight,
+                maxHeight: 945 - appBarHeight,
               ),
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.spMax),
@@ -67,11 +66,12 @@ class AddMemberView extends StatelessWidget {
                       ),
                       const Spacer(flex: 30),
                       Container(
-                        height: 482.h,
-                        width: 328.h,
+                        height: 482,
+                        width: 328.sw,
                         decoration: BoxDecoration(
-                            color: Palette.secondaryBackground,
-                            borderRadius: BorderRadius.circular(5)),
+                          color: Palette.secondaryBackground,
+                          borderRadius: BorderRadius.circular(5),
+                        ),
                         child: Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20.spMax, vertical: 30.spMax),
                           child: Column(
@@ -128,7 +128,7 @@ class AddMemberView extends StatelessWidget {
                                 decoration: InputDecoration(
                                     hintText: 'Enter full name',
                                     hintStyle: hintStyle,
-                                    constraints: BoxConstraints(maxHeight: 36.h),
+                                    constraints: const BoxConstraints(maxHeight: 36),
                                     enabledBorder: border,
                                     focusedBorder: border,
                                     contentPadding: contentPadding),
@@ -153,7 +153,7 @@ class AddMemberView extends StatelessWidget {
                                 style: theme.textTheme.bodySmall!
                                     .copyWith(color: Palette.readOnlyText),
                                 decoration: InputDecoration(
-                                  constraints: BoxConstraints(maxHeight: 36.h),
+                                  constraints: const BoxConstraints(maxHeight: 36),
                                   enabledBorder: border,
                                   focusedBorder: border,
                                   contentPadding: contentPadding,
@@ -165,7 +165,7 @@ class AddMemberView extends StatelessWidget {
 
                               // Phone number Field
                               Container(
-                                height: 36.h,
+                                height: 36,
                                 decoration: BoxDecoration(
                                     color: Palette.lightGrey,
                                     borderRadius: const BorderRadius.all(Radius.circular(4)),
@@ -203,9 +203,7 @@ class AddMemberView extends StatelessWidget {
                                   suffixIconConstraints: const BoxConstraints(maxHeight: 16),
                                   hintText: 'DD/MM/YYYY',
                                   hintStyle: hintStyle,
-                                  constraints: BoxConstraints(
-                                    maxHeight: 36.h,
-                                  ),
+                                  constraints: const BoxConstraints(maxHeight: 36),
                                   enabledBorder: border,
                                   focusedBorder: border,
                                   contentPadding: contentPadding,
