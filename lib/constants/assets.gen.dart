@@ -129,6 +129,9 @@ class $AssetsSvgGen {
   /// File path: assets/svg/camera.svg
   String get camera => 'assets/svg/camera.svg';
 
+  /// File path: assets/svg/family_tree.svg
+  String get familyTree => 'assets/svg/family_tree.svg';
+
   /// File path: assets/svg/female.svg
   String get female => 'assets/svg/female.svg';
 
@@ -138,12 +141,24 @@ class $AssetsSvgGen {
   /// File path: assets/svg/male.svg
   String get male => 'assets/svg/male.svg';
 
+  /// File path: assets/svg/person.svg
+  String get person => 'assets/svg/person.svg';
+
   /// File path: assets/svg/user_alt.svg
   String get userAlt => 'assets/svg/user_alt.svg';
 
   /// List of all assets
-  List<String> get values =>
-      [appbarBack, calender, camera, female, line, male, userAlt];
+  List<String> get values => [
+        appbarBack,
+        calender,
+        camera,
+        familyTree,
+        female,
+        line,
+        male,
+        person,
+        userAlt
+      ];
 }
 
 class Assets {

@@ -1,12 +1,9 @@
 import 'package:famlaika/constants/app_colors.dart';
 import 'package:famlaika/constants/app_strings.dart';
-import 'package:famlaika/models/country.dart';
 import 'package:famlaika/ui/tools/screen_size.dart';
 import 'package:famlaika/ui/widgets/shared.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../../app/app.locator.dart';
@@ -39,7 +36,7 @@ class LoginView extends StatelessWidget {
                   Flexible(
                     flex: 391,
                     child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 16.sp),
+                      padding: EdgeInsets.symmetric(horizontal: 20.spMax),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -64,7 +61,6 @@ class LoginView extends StatelessWidget {
                             child: Flexible(
                               flex: 233,
                               child: Container(
-                                width: 328.sp,
                                 height: 40.sp,
                                 decoration: BoxDecoration(
                                   color: Palette.lightGrey,
@@ -74,85 +70,11 @@ class LoginView extends StatelessWidget {
                                   border: Border.all(
                                       color: Palette.inputBorder, width: 1),
                                 ),
-                                child: Row(
-                                  children: [
-                                    Flexible(
-                                      flex: 88,
-                                      child: DropdownButtonFormField<Country>(
-                                        dropdownColor:
-                                            Palette.secondaryBackground,
-                                        value: viewModel.selectedCountry,
-                                        items: countries.map(
-                                          (Country country) {
-                                            return DropdownMenuItem<Country>(
-                                              value: country,
-                                              child: Row(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
-                                                children: [
-                                                  Center(
-                                                    child: SvgPicture.asset(
-                                                      country.flag,
-                                                      width: 20,
-                                                      height: 14,
-                                                    ),
-                                                  ),
-                                                  const SizedBox(width: 8),
-                                                  Text(
-                                                    country.phoneCode,
-                                                    style: theme
-                                                        .textTheme.titleLarge,
-                                                  ),
-                                                ],
-                                              ),
-                                            );
-                                          },
-                                        ).toList(),
-                                        onChanged: (value) {},
-                                        decoration: const InputDecoration(
-                                          border: InputBorder.none,
-                                          contentPadding: EdgeInsets.only(
-                                              bottom: 8, left: 10),
-                                        ),
-                                        alignment: Alignment.center,
-                                      ),
-                                    ),
-                                    SvgPicture.asset('assets/svg/line.svg'),
-                                    Flexible(
-                                      flex: 200,
-                                      child: TextFormField(
-                                        controller: viewModel
-                                            .phoneNumberEditingController,
-                                        inputFormatters: [
-                                          LengthLimitingTextInputFormatter(10),
-                                          FilteringTextInputFormatter.digitsOnly
-                                        ],
-                                        style: theme.textTheme.titleLarge,
-                                        keyboardType: TextInputType.phone,
-                                        decoration: InputDecoration(
-                                          hintText: '000 000 0000',
-                                          hintStyle: theme.textTheme.bodySmall!
-                                              .copyWith(
-                                                  color: Palette.opaqueGrey),
-                                          contentPadding:
-                                              const EdgeInsetsDirectional.only(
-                                                  bottom: 8, start: 14),
-                                          border: InputBorder.none,
-                                          counterText: '',
-                                        ),
-                                        maxLength: 10,
-                                        autovalidateMode:
-                                            AutovalidateMode.onUserInteraction,
-                                        onChanged: (value) {
-                                          viewModel.isValidMobileNumber(value);
-                                        },
-                                        validator: (value) {
-                                          return viewModel
-                                              .isValidMobileNumber(value!);
-                                        },
-                                      ),
-                                    ),
-                                  ],
+                                child: phoneNumberFieldWithCountryCodes(
+                                  selectedCountry: viewModel.selectedCountry,
+                                  phoneNumberEditingController:
+                                      viewModel.phoneNumberEditingController,
+                                  updateCountry: viewModel.updateCountry,
                                 ),
                               ),
                             ),

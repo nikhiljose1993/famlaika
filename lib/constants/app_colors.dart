@@ -12,12 +12,13 @@ abstract class Palette {
   static const Color opaqueGrey = Color(0xff464545);
   static const Color inputGrey = Color(0xff262626);
   static const Color inputFormHint = Color(0xff4E4C4C);
+  static const Color inputBorder = Color(0xff383838);
+
+  static const Color readOnlyText = Color(0xff726F6F);
 
   static const Color errColor = Color(0xFFF44336);
 
   static const Color foreground = Color(0xffFFFFFF);
-
-  static const Color inputBorder = Color(0xff383838);
 
   static const LinearGradient primaryGradient = LinearGradient(
     begin: Alignment(-1.15, 1.0), // Adjusted for -15.77%

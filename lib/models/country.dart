@@ -16,5 +16,5 @@ List<Country> countries = [
   Country(name: 'India', flag: 'assets/flags/india.svg', phoneCode: '+91'),
 ];
 
-Country? defaultCountry =
+Country defaultCountry =
     countries.firstWhere((country) => country.name == 'India');

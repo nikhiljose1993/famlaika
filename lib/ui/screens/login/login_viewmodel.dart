@@ -7,12 +7,17 @@ import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 class LoginViewModel extends BaseViewModel {
-  Country? selectedCountry = defaultCountry;
+  Country selectedCountry = defaultCountry;
   String errMsg = '';
 
   final loginFormKey = GlobalKey<FormState>();
 
   TextEditingController phoneNumberEditingController = TextEditingController();
+
+  updateCountry(Country) {
+    selectedCountry = Country;
+    notifyListeners();
+  }
 
   isValidMobileNumber(String mobileNumber) {
     const String pattern = r'^[1-9]\d{9}$';
@@ -28,7 +33,6 @@ class LoginViewModel extends BaseViewModel {
   void getOtp() {
     final validate = loginFormKey.currentState!.validate();
     if (validate) {
-      errMsg = '';
       notifyListeners();
       //
     }

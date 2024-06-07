@@ -1,30 +1,45 @@
 import 'dart:io';
-import 'package:famlaika/constants/app_colors.dart';
-import 'package:flutter/material.dart';
 
-import 'package:stacked/stacked.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
+import 'package:stacked/stacked.dart';
 
-import '../../../app/app.router.dart';
-import '../../../app/utils.dart';
+import '../../../constants/app_colors.dart';
+import '../../../models/country.dart';
 
-class PersonalInformationViewModel extends BaseViewModel {
-  final GlobalKey<FormState> personalInformationFormKey = GlobalKey<FormState>();
+class AddMemberViewModel extends BaseViewModel {
+  GlobalKey<FormState> addMemberFormKey = GlobalKey<FormState>();
 
+  Country selectedCountry = defaultCountry;
   File? image;
   int? selectedIndex;
   DateTime? picked;
 
-  TextEditingController dateController = TextEditingController();
+  bool isAlive = true;
+
   TextEditingController nameController = TextEditingController();
+  TextEditingController relationController = TextEditingController();
+  TextEditingController phoneNumberEditingController = TextEditingController();
+  TextEditingController dateController = TextEditingController();
 
   @override
   void dispose() {
-    dateController.dispose();
     nameController.dispose();
+    relationController.dispose();
+    phoneNumberEditingController.dispose();
+    dateController.dispose();
+
     super.dispose();
   }
+
+  void initializeRelation(String relation) {
+    relationController.text = relation;
+    notifyListeners();
+  }
+
+  skipTo() {}
 
   Future<void> pickImage() async {
     final picker = ImagePicker();
@@ -34,6 +49,23 @@ class PersonalInformationViewModel extends BaseViewModel {
       image = File(pickedFile.path);
       notifyListeners();
     }
+  }
+
+  isAliveChanged(bool value) {
+    isAlive = value;
+    print(isAlive);
+    notifyListeners();
+  }
+
+  onGenderSelectionChanged(int index) {
+    selectedIndex = index;
+    print(selectedIndex);
+    notifyListeners();
+  }
+
+  updateCountry(Country country) {
+    selectedCountry = country;
+    notifyListeners();
   }
 
   Future<void> selectDate(BuildContext context) async {
@@ -69,25 +101,11 @@ class PersonalInformationViewModel extends BaseViewModel {
     }
   }
 
-  onSelectionChanged(int index) {
-    selectedIndex = index;
-    print(selectedIndex);
-    notifyListeners();
-  }
-
-  void submitPersonalDetails() {
-    final state = personalInformationFormKey.currentState;
-    late String name;
-    late String dob;
-    if (state != null) {
-      state.validate();
-      name = nameController.text.trim();
-
-      if (dateController.text.isNotEmpty) {
-        dob = dateController.text;
-      }
+  submitAddMember() {
+    final validate = addMemberFormKey.currentState!.validate();
+    if (validate) {
+      print(phoneNumberEditingController.text);
+      print(selectedCountry.phoneCode);
     }
-
-    navigationService.navigateTo(Routes.createFamilyTreeView);
   }
 }
