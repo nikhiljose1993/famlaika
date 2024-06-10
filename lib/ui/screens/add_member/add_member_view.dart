@@ -80,18 +80,16 @@ class AddMemberView extends StatelessWidget {
                               Row(
                                 children: [
                                   Text(AppStrings.personAlive, style: theme.textTheme.bodySmall),
-                                  ConstrainedBox(
-                                    constraints: const BoxConstraints(maxHeight: 6),
-                                    child: Transform.scale(
-                                      scale: 0.6,
-                                      child: Switch(
-                                        value: viewModel.isAlive,
-                                        onChanged: (value) => viewModel.isAliveChanged(value),
-                                        activeColor: Palette.primary,
-                                        inactiveThumbColor: Colors.grey,
-                                        activeTrackColor: Palette.inputFormHint,
-                                        inactiveTrackColor: Palette.inputFormHint,
-                                      ),
+                                  const SizedBox(width: 3),
+                                  Transform.scale(
+                                    scale: 0.55,
+                                    child: Switch.adaptive(
+                                      value: viewModel.isAlive,
+                                      onChanged: (value) => viewModel.isAliveChanged(context),
+                                      activeColor: Palette.primary,
+                                      activeTrackColor: Palette.inputFormHint,
+                                      inactiveTrackColor: Palette.inputFormHint,
+                                      materialTapTargetSize: MaterialTapTargetSize.padded,
                                     ),
                                   ),
                                 ],
@@ -175,6 +173,7 @@ class AddMemberView extends StatelessWidget {
                                   phoneNumberEditingController:
                                       viewModel.phoneNumberEditingController,
                                   updateCountry: viewModel.updateCountry,
+                                  padding: 14,
                                 ),
                               ),
                               const Spacer(flex: 20),

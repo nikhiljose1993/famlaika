@@ -129,20 +129,35 @@ class $AssetsSvgGen {
   /// File path: assets/svg/camera.svg
   String get camera => 'assets/svg/camera.svg';
 
+  /// File path: assets/svg/close.svg
+  String get close => 'assets/svg/close.svg';
+
+  /// File path: assets/svg/content_copy.svg
+  String get contentCopy => 'assets/svg/content_copy.svg';
+
   /// File path: assets/svg/family_tree.svg
   String get familyTree => 'assets/svg/family_tree.svg';
 
   /// File path: assets/svg/female.svg
   String get female => 'assets/svg/female.svg';
 
-  /// File path: assets/svg/line.svg
-  String get line => 'assets/svg/line.svg';
+  /// File path: assets/svg/link.svg
+  String get link => 'assets/svg/link.svg';
 
   /// File path: assets/svg/male.svg
   String get male => 'assets/svg/male.svg';
 
   /// File path: assets/svg/person.svg
   String get person => 'assets/svg/person.svg';
+
+  /// File path: assets/svg/person_is_not_alive.svg
+  String get personIsNotAlive => 'assets/svg/person_is_not_alive.svg';
+
+  /// File path: assets/svg/renew.svg
+  String get renew => 'assets/svg/renew.svg';
+
+  /// File path: assets/svg/share.svg
+  String get share => 'assets/svg/share.svg';
 
   /// File path: assets/svg/user_alt.svg
   String get userAlt => 'assets/svg/user_alt.svg';
@@ -152,11 +167,16 @@ class $AssetsSvgGen {
         appbarBack,
         calender,
         camera,
+        close,
+        contentCopy,
         familyTree,
         female,
-        line,
+        link,
         male,
         person,
+        personIsNotAlive,
+        renew,
+        share,
         userAlt
       ];
 }

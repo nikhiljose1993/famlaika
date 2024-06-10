@@ -63,18 +63,25 @@ PreferredSizeWidget appBar({String? title, VoidCallback? skip}) {
 
 // Primary gradient custom button
 
-Widget customButton({required String buttonText, required Function onTap}) {
+Widget customButton({
+  required String buttonText,
+  required Function onTap,
+  Color? bgColor,
+  Color? fgColor,
+  double? width,
+}) {
   return Center(
     child: Container(
       height: 40.sp,
-      width: 328.sp,
-      decoration: const BoxDecoration(
-        gradient: Palette.primaryGradient,
-        borderRadius: BorderRadius.all(Radius.circular(4)),
+      width: width ?? 328.sp,
+      decoration: BoxDecoration(
+        color: bgColor,
+        gradient: bgColor == null ? Palette.primaryGradient : null,
+        borderRadius: const BorderRadius.all(Radius.circular(4)),
       ),
       child: TextButton(
         onPressed: () => onTap(),
-        child: Text(buttonText, style: theme.textTheme.headlineSmall),
+        child: Text(buttonText, style: theme.textTheme.headlineSmall!.copyWith(color: fgColor)),
       ),
     ),
   );
@@ -237,11 +244,11 @@ Widget familyTreeNode({required String label, bool? haveSelected}) {
 
 // Phone number field with country codes
 
-Widget phoneNumberFieldWithCountryCodes({
-  required Country selectedCountry,
-  required TextEditingController phoneNumberEditingController,
-  required Function updateCountry,
-}) {
+Widget phoneNumberFieldWithCountryCodes(
+    {required Country selectedCountry,
+    required TextEditingController phoneNumberEditingController,
+    required Function updateCountry,
+    double? padding}) {
   return Row(
     children: [
       ConstrainedBox(
@@ -269,12 +276,14 @@ Widget phoneNumberFieldWithCountryCodes({
           onChanged: (value) => updateCountry(value),
           decoration: const InputDecoration(
             border: InputBorder.none,
-            contentPadding: EdgeInsets.only(bottom: 12, left: 10),
+            contentPadding: EdgeInsets.only(bottom: 8, left: 10),
           ),
           alignment: Alignment.center,
         ),
       ),
-      SvgPicture.asset('assets/svg/line.svg'),
+      Center(
+        child: Container(height: 20, width: 2, color: Palette.opaqueGrey),
+      ),
       Flexible(
         child: TextFormField(
           controller: phoneNumberEditingController,
@@ -287,7 +296,7 @@ Widget phoneNumberFieldWithCountryCodes({
           decoration: InputDecoration(
             hintText: '000 000 0000',
             hintStyle: theme.textTheme.bodySmall!.copyWith(color: Palette.opaqueGrey),
-            contentPadding: const EdgeInsetsDirectional.only(bottom: 14, start: 14),
+            contentPadding: EdgeInsetsDirectional.only(bottom: padding ?? 8, start: 14),
             border: InputBorder.none,
             counterText: '',
           ),

@@ -44,5 +44,29 @@ abstract class AppStrings {
   static const String personAlive = 'Is the person alive?';
   static const String relation = 'Relation';
   static const String mobNo = 'Mobile No:';
+  static const String personIsNotAlive = 'Person is not alive';
+  static const String personIsNotAliveInfo =
+      'If the member is not alive, make sure all\nother members using the same unique node\ncode in their device.';
+  static const String link = 'Link';
+  static const String generate = 'Generate';
+  static const String linkCode = 'Link Code';
+  static const String linkCodeInfo =
+      'Generate a code & share with your family\nmembers, can ensure that s/he is not alive.';
+  static const String cancel = 'Cancel';
+  static const String confirm = 'Confirm';
+
+  static const String generateCode = 'Generate Code';
+  static const String generateCodeInfo =
+      'Generate a code & share with your family\nmembers, can ensure that s/he is not alive.';
+  static const String shareCode = 'Share code';
+
+//   static const String child = 'Child';
+//   static const String child = 'Child';
+//   static const String child = 'Child';
+//   static const String child = 'Child';
+//   static const String child = 'Child';
+//   static const String child = 'Child';
+//   static const String child = 'Child';
+//   static const String child = 'Child';
 //   static const String child = 'Child';
 }
